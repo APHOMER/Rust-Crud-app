@@ -1,9 +1,15 @@
 #![allow(clippy::result_large_err)]
 
 use anchor_lang::prelude::*;
+// KEYPHRASE: wolf diary attend ankle adjust tape limit story rescue next hint sunny
+//NEW KEYPHRASE: usage army nature require void cat relief bargain defy parent verify stem
 
-declare_id!("coUnmi3oBUtwtd9fjeAvSsJssXh5A5xyPbhpewyzRVF");
+// Recovered pubkey: "4obQzpxocyxDPDsQpTVfm9HJLAaGM8GAEob69zSvHbtg" 
+//                   `"5x6R9iDsC3X4pKsrr336LSMADcxe986n1EboMDLzHA3J"`
+// vFi6MhoyWCoszJyf6LXjMRSxNz8pgWgdQSqkqFj41cUJJiH5bmAVMsP3R7UDgDcBkKGAHgBJFgTRzoPZm8QBhm9
 
+declare_id!("8vnmovQPcVrDEc56ZR4DxvFxoYvczs6zutcqqQzgHpWw");
+// solana airdrop 1 8vnmovQPcVrDEc56ZR4DxvFxoYvczs6zutcqqQzgHpWw --url https://api.devnet.solana.com
 #[program]
 pub mod crudapp {
     use super::*;
@@ -28,7 +34,8 @@ pub mod crudapp {
             Ok(())
       }
 
-      pub fn delele_journal_entry(_ctx: Context<DeleteEntry>, _title: String) -> Result<()> {
+
+      pub fn delete_journal_entry(_ctx: Context<DeleteEntry>, _title: String) -> Result<()> {
 
         Ok(())
       }
@@ -104,7 +111,5 @@ pub struct JournalEntryState {
   #[max_len(1000)]
   pub message: String
   }
-
-
 
 
