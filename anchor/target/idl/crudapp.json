@@ -1,24 +1,49 @@
 {
-  "version": "0.1.0",
-  "name": "crudapp",
+  "address": "8vnmovQPcVrDEc56ZR4DxvFxoYvczs6zutcqqQzgHpWw",
+  "metadata": {
+    "name": "crudapp",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
   "instructions": [
     {
-      "name": "createJournalEntry",
+      "name": "create_journal_entry",
+      "discriminator": [
+        48,
+        65,
+        201,
+        186,
+        25,
+        41,
+        127,
+        0
+      ],
       "accounts": [
         {
-          "name": "journalEntry",
-          "isMut": true,
-          "isSigner": false
+          "name": "journal_entry",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "arg",
+                "path": "title"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
         },
         {
           "name": "owner",
-          "isMut": true,
-          "isSigner": true
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
@@ -33,57 +58,97 @@
       ]
     },
     {
-      "name": "updateJournalEntry",
+      "name": "delete_journal_entry",
+      "discriminator": [
+        156,
+        50,
+        93,
+        5,
+        157,
+        97,
+        188,
+        114
+      ],
       "accounts": [
         {
-          "name": "journalEntry",
-          "isMut": true,
-          "isSigner": false
+          "name": "journal_entry",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "arg",
+                "path": "title"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
         },
         {
           "name": "owner",
-          "isMut": true,
-          "isSigner": true
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
         {
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "name": "message",
+          "name": "_title",
           "type": "string"
         }
       ]
     },
     {
-      "name": "deleleJournalEntry",
+      "name": "update_journal_entry",
+      "discriminator": [
+        113,
+        164,
+        49,
+        62,
+        43,
+        83,
+        194,
+        172
+      ],
       "accounts": [
         {
-          "name": "journalEntry",
-          "isMut": true,
-          "isSigner": false
+          "name": "journal_entry",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "arg",
+                "path": "title"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
         },
         {
           "name": "owner",
-          "isMut": true,
-          "isSigner": true
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
         {
-          "name": "title",
+          "name": "_title",
+          "type": "string"
+        },
+        {
+          "name": "message",
           "type": "string"
         }
       ]
@@ -92,12 +157,27 @@
   "accounts": [
     {
       "name": "JournalEntryState",
+      "discriminator": [
+        113,
+        86,
+        110,
+        124,
+        140,
+        14,
+        58,
+        66
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "JournalEntryState",
       "type": {
         "kind": "struct",
         "fields": [
           {
             "name": "owner",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
             "name": "title",
